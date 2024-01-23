@@ -1,0 +1,123 @@
+body {
+    background-color: hsl(0, 0%, 94%);
+    font-family: 'Poppins', sans-serif;
+}
+*:focus {
+    outline: 0;
+}
+
+main {
+    background-color: hsl(0, 0%, 100%);
+    padding: 2rem;
+    margin: 6rem auto;
+    width: 280px;
+    border-radius: 15px 15px 100px 15px;
+    
+}
+.img-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+hr {
+    border: 1px solid hsl(0, 0%, 86%);
+    width: 50%;
+}
+.img {
+    background-color: hsl(259, 100%, 65%);
+    border-radius: 50%;
+    width: 48px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 10px;
+}
+input {
+    font-size: 20px;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid hsl(0, 0%, 86%);
+}
+
+input[type=number]:focus {
+    border: 1px solid hsl(259, 100%, 65%); 
+}
+
+input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0; 
+}
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
+label {
+    color: hsl(0, 1%, 44%);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    padding-bottom: 1rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+.input-box {
+    margin-right: 2rem;
+}
+.ageResult {
+    font-size: 50px;
+    font-weight: 700;
+}
+p {
+    margin: -1rem 0;
+}
+span {
+   color: hsl(259, 100%, 65%); 
+}
+form {
+    display: flex;
+}
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 2rem;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+.fieldError, #dayError, #monthError, #yearError {
+    font-size: 0.6rem;
+}
+input[type=submit] {
+    display: none;
+}
+
+@media screen and (min-width: 700px) {
+    main {
+        width: 500px;
+    }
+    .mobile-line {
+        display: none;
+    }
+    hr {
+        width: 100%;
+    }
+    input {
+        font-size: 30px;
+        width: 70%;
+    }
+    .fieldError, #dayError, #monthError, #yearError {
+        font-size: 0.8rem;
+    }
+    form {
+        width: 450px;
+    }
+    .input-box {
+        margin-right: 0;
+    }
+    label {
+        font-size: 1rem;
+    }
+}

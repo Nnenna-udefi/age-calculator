@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+ <main>
+  <form id="form" action="">
+    <div class="input-box">
+      <label for="day">Day</label>
+    <input type="number" name="day" placeholder="DD" id="day" /><br />
+    <span class="fieldError"></span>
+    <span id="dayError"></span>
+    </div>
+
+    <div class="input-box">
+      <label for="month">Month</label>
+    <input type="number" name="month" placeholder="MM" id="month" /><br />
+    <span class="fieldError"></span>
+    <span id="monthError"></span>
+    </div>
+
+    <div class="input-box">
+      <label for="year">Year</label>
+    <input type="number" name="year" placeholder="YYYY"  id="year"/><br />
+    <span class="fieldError"></span>
+    <span id="yearError"></span>
+    </div>
+  </form>
+
+  <div class="img-box">
+    <hr />
+    <div class="img">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 46 44"><g fill="none" stroke="#fff" stroke-width="3"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+    </div>
+    <hr class="mobile-line"/>
+  </div>
+
+  <div class="ageResult">
+    <p><span id="yearsResult">--</span> years</p>
+    <p><span id="monthsResult">--</span> months</p>
+    <p><span id="daysResult">--</span> days</p>
+  </div>
+ 
+ </main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Nnenna Udefi</a>.
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
