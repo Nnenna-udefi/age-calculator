@@ -98,7 +98,7 @@ input[type=submit] {
 
 @media screen and (min-width: 700px) {
     main {
-        width: 55%;
+        width: 50%;
         border-radius: 15px 15px 200px 15px;
     }
     .mobile-line {
@@ -129,7 +129,6 @@ input[type=submit] {
     }
     h1 {
         font-size: 4rem;
-        margin: -2.5rem 0;
     }
     
 }
