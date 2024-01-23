@@ -9,7 +9,7 @@ body {
 main {
     background-color: hsl(0, 0%, 100%);
     padding: 3rem 2rem;
-    margin: 6rem auto;
+    margin: 8rem auto;
     width: 280px;
     border-radius: 15px 15px 100px 15px;
     
@@ -37,9 +37,10 @@ hr {
 input {
     font-size: 20px;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 10px;
     border: 1px solid hsl(0, 0%, 86%);
+    font-weight: 700;
 }
 
 input[type=number]:focus {
@@ -60,7 +61,7 @@ label {
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     padding-bottom: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.8rem;
 }
 .input-box {
@@ -112,8 +113,12 @@ input[type=submit] {
         width: 70%;
     }
     .img {
-        width: 68px;
-        height: 60px;  
+        width: 78px;
+        height: 70px;  
+    }
+    .arrow {
+        width: 60px;
+        height: 60px;
     }
     .fieldError, #dayError, #monthError, #yearError {
         font-size: 0.8rem;
@@ -124,11 +129,8 @@ input[type=submit] {
     .input-box {
         margin-right: 0;
     }
-    label {
-        font-size: 1rem;
-    }
     h1 {
-        font-size: 5rem;
+        font-size: 6rem;
     }
     
 }
