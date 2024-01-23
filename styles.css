@@ -8,7 +8,7 @@ body {
 
 main {
     background-color: hsl(0, 0%, 100%);
-    padding: 2rem;
+    padding: 3rem 2rem;
     margin: 6rem auto;
     width: 280px;
     border-radius: 15px 15px 100px 15px;
@@ -70,8 +70,10 @@ label {
     font-size: 50px;
     font-weight: 700;
 }
-p {
-    margin: -1rem 0;
+h1 {
+    margin: -1.5rem 0;
+    font-size: 3rem;
+    font-style: italic;
 }
 span {
    color: hsl(259, 100%, 65%); 
@@ -96,7 +98,8 @@ input[type=submit] {
 
 @media screen and (min-width: 700px) {
     main {
-        width: 500px;
+        width: 55%;
+        border-radius: 15px 15px 200px 15px;
     }
     .mobile-line {
         display: none;
@@ -108,11 +111,15 @@ input[type=submit] {
         font-size: 30px;
         width: 70%;
     }
+    .img {
+        width: 68px;
+        height: 60px;  
+    }
     .fieldError, #dayError, #monthError, #yearError {
         font-size: 0.8rem;
     }
     form {
-        width: 450px;
+        width: 80%;
     }
     .input-box {
         margin-right: 0;
@@ -120,4 +127,19 @@ input[type=submit] {
     label {
         font-size: 1rem;
     }
+    h1 {
+        font-size: 6rem;
+        margin: -2.5rem 0;
+    }
+    
 }
+
+@media (min-width:700px) and (max-width:900px) {
+    h1 {
+        font-size: 4rem;
+    }
+    main {
+        width: 60%;
+        border-radius: 15px 15px 150px 15px;
+    }
+}​
