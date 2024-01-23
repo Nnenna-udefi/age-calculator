@@ -41,8 +41,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution](https://github.com/Nnenna-udefi/age-calculator)
+- Live Site URL: [link](https://nnenna-udefi.github.io/age-calculator/)
 
 ## My process
 
@@ -69,6 +69,6 @@ Users should be able to:
 
 ## Author
 
-- Github - [@yourusername](https://www.github.com/profile/Nnenna-udefi)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/Nnenna-udefi)
-- Twitter - [@yourusername](https://www.twitter.com/nnennaudefi)
+- Github - [@Nnenna-udefi](https://www.github.com/profile/Nnenna-udefi)
+- Frontend Mentor - [@Nnenna-udefi](https://www.frontendmentor.io/profile/Nnenna-udefi)
+- Twitter - [@nnennaudefi](https://www.twitter.com/nnennaudefi)
