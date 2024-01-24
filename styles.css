@@ -33,6 +33,7 @@ hr {
     justify-content: center;
     align-items: center;
     right: 10px;
+    border: none;
 }
 input {
     font-size: 20px;
