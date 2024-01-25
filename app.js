@@ -25,7 +25,6 @@ const submitButton = document.querySelector('.img');
 
 
 function validateForm() {
-
   function validateInputs() {
      // Reset all errors and styles before revalidation
      fieldError.forEach(error => {
