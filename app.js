@@ -21,13 +21,18 @@ const yearError = document.getElementById('yearError');
 const yearsResult = document.getElementById('yearsResult');
 const monthsResult = document.getElementById('monthsResult');
 const daysResult = document.getElementById('daysResult');
+const submitButton = document.querySelector('.img');
 
 
 function validateForm() {
+  function handleSubmit() {
+    console.log('form submitted');
+  }
   inputs.forEach((input, index) => {
     input.addEventListener('keyup', function(event) {
       if (event.key === 'Enter') {
         event.preventDefault();
+        handleSubmit();
 
         // Reset all errors and styles before revalidation
         fieldError.forEach(error => {
@@ -133,6 +138,10 @@ function validateForm() {
       } 
     });
   });
+
+  submitButton.addEventListener('click', function() {
+    handleSubmit();
+  })
 }
 
 function validateDate(day, month, year) {
@@ -143,7 +152,7 @@ function validateDate(day, month, year) {
     testDate.getDate() === day && testDate.getMonth() === month - 1 && testDate.getFullYear() === year
   );
 }
-validateForm();
+
 
 function calculateAge(day, month, year) {
   const currentDate = new Date();
@@ -174,3 +183,5 @@ function updateAge(age) {
   daysResult.innerHTML = `${age.days}`
 }
 
+
+validateForm();
