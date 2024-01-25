@@ -25,122 +25,121 @@ const submitButton = document.querySelector('.img');
 
 
 function validateForm() {
-  function handleSubmit() {
-    console.log('form submitted');
+
+  function validateInputs() {
+     // Reset all errors and styles before revalidation
+     fieldError.forEach(error => {
+      error.innerHTML = '';
+    });
+    inputs.forEach(input => {
+      input.style.borderColor = '';
+      input.previousElementSibling.style.color = '';
+    });
+
+    // check for empty input fields
+    const emptyInputs = Array.from(inputs).filter(input => input.value === '');
+
+    if (emptyInputs.length > 0) {
+      // display error messages
+      emptyInputs.forEach(emptyInput => {
+        const emptyIndex = Array.from(inputs).indexOf(emptyInput);
+        fieldError[emptyIndex].innerHTML = 'This field is required';
+      });
+
+      // change color of border and label to red for empty Inputs
+      inputs.forEach((input, i) => {
+        if (emptyInputs.includes(input)) {
+          fieldError[i].style.color = 'hsl(0, 100%, 67%)';
+          input.style.borderColor = 'hsl(0, 100%, 67%)';
+          input.previousElementSibling.style.color = 'hsl(0, 100%, 67%)'; //changes the label color
+        } 
+      });
+
+      // abort form submission
+      return; 
+    }
+
+     // checks for invalid day input
+     const day = inputs[0];
+     // ensures that the input is treated as a whole number, regardless of whether the user enters it with leading zeros or not.
+     const dayValue = parseInt(day.value, 10);
+
+     if(isNaN(dayValue) || dayValue < 1 || dayValue > 31) {
+      dayError.innerHTML = 'Must be a valid day';
+      dayError.style.color = 'hsl(0, 100%, 67%)';
+      day.style.borderColor = 'hsl(0, 100%, 67%)';
+      day.previousElementSibling.style.color = 'hsl(0, 100%, 67%)'; 
+     } else {
+      dayError.innerHTML = '';
+      dayError.style.color = '';
+      day.style.borderColor = '';
+    };
+
+    // checks for invalid month input
+    const month = inputs[1];
+    // ensures that the input is treated as a whole number, regardless of whether the user enters it with leading zeros or not.
+    const monthValue = parseInt(month.value, 10);
+
+    if(isNaN(monthValue) || monthValue < 1 || monthValue > 12) {
+     monthError.innerHTML = 'Must be a valid month';
+     monthError.style.color = 'hsl(0, 100%, 67%)';
+     month.style.borderColor = 'hsl(0, 100%, 67%)';
+     month.previousElementSibling.style.color = 'hsl(0, 100%, 67%)';
+    } else {
+     monthError.innerHTML = '';
+     monthError.style.color = '';
+     month.style.borderColor = '';
+   }
+
+     // checks for invalid year input
+     const year = inputs[2];
+     // ensures that the input is treated as a whole number, regardless of whether the user enters it with leading zeros or not.
+     const yearValue = parseInt(year.value, 10);
+     const currentYear = new Date().getFullYear();
+
+     if(isNaN(yearValue) || yearValue.toString().length !== 4 || yearValue > currentYear) {
+      yearError.innerHTML = 'Must be in the past';
+      yearError.style.color = 'hsl(0, 100%, 67%)';
+      year.style.borderColor = 'hsl(0, 100%, 67%)';
+      year.previousElementSibling.style.color = 'hsl(0, 100%, 67%)'; 
+     } else {
+      yearError.innerHTML = '';
+      yearError.style.color = '';
+      year.style.borderColor = '';
+    }
+
+    // validate the entire date
+    const validDate = validateDate(dayValue, monthValue, yearValue);
+      if (!validDate) {
+        dayError.innerHTML = 'Must be a valid date';
+        dayError.style.color = 'hsl(0, 100%, 67%)';
+        inputs.forEach(input => {
+          input.style.borderColor = 'hsl(0, 100%, 67%)';
+          input.previousElementSibling.style.color = 'hsl(0, 100%, 67%)';
+        });
+      } else {
+        const age = calculateAge(dayValue, monthValue, yearValue);
+        updateAge(age);
+      }
+    
+
+
+     // When validation passes the form is submitted
+    if (dayError.innerHTML === '' && monthError.innerHTML === '' && yearError.innerHTML === '') {
+      console.log('Form submitted');
+    }
   }
   inputs.forEach((input, index) => {
     input.addEventListener('keyup', function(event) {
       if (event.key === 'Enter') {
         event.preventDefault();
-        handleSubmit();
-
-        // Reset all errors and styles before revalidation
-        fieldError.forEach(error => {
-          error.innerHTML = '';
-        });
-        inputs.forEach(input => {
-          input.style.borderColor = '';
-          input.previousElementSibling.style.color = '';
-        });
-
-        // check for empty input fields
-        const emptyInputs = Array.from(inputs).filter(input => input.value === '');
-
-        if (emptyInputs.length > 0) {
-          // display error messages
-          emptyInputs.forEach(emptyInput => {
-            const emptyIndex = Array.from(inputs).indexOf(emptyInput);
-            fieldError[emptyIndex].innerHTML = 'This field is required';
-          });
-
-          // change color of border and label to red for empty Inputs
-          inputs.forEach((input, i) => {
-            if (emptyInputs.includes(input)) {
-              fieldError[i].style.color = 'hsl(0, 100%, 67%)';
-              input.style.borderColor = 'hsl(0, 100%, 67%)';
-              input.previousElementSibling.style.color = 'hsl(0, 100%, 67%)'; //changes the label color
-            } 
-          });
-
-          // abort form submission
-          return; 
-        }
-
-         // checks for invalid day input
-         const day = inputs[0];
-         // ensures that the input is treated as a whole number, regardless of whether the user enters it with leading zeros or not.
-         const dayValue = parseInt(day.value, 10);
-
-         if(isNaN(dayValue) || dayValue < 1 || dayValue > 31) {
-          dayError.innerHTML = 'Must be a valid day';
-          dayError.style.color = 'hsl(0, 100%, 67%)';
-          day.style.borderColor = 'hsl(0, 100%, 67%)';
-          day.previousElementSibling.style.color = 'hsl(0, 100%, 67%)'; 
-         } else {
-          dayError.innerHTML = '';
-          dayError.style.color = '';
-          day.style.borderColor = '';
-        };
-
-        // checks for invalid month input
-        const month = inputs[1];
-        // ensures that the input is treated as a whole number, regardless of whether the user enters it with leading zeros or not.
-        const monthValue = parseInt(month.value, 10);
-
-        if(isNaN(monthValue) || monthValue < 1 || monthValue > 12) {
-         monthError.innerHTML = 'Must be a valid month';
-         monthError.style.color = 'hsl(0, 100%, 67%)';
-         month.style.borderColor = 'hsl(0, 100%, 67%)';
-         month.previousElementSibling.style.color = 'hsl(0, 100%, 67%)';
-        } else {
-         monthError.innerHTML = '';
-         monthError.style.color = '';
-         month.style.borderColor = '';
-       }
-
-         // checks for invalid year input
-         const year = inputs[2];
-         // ensures that the input is treated as a whole number, regardless of whether the user enters it with leading zeros or not.
-         const yearValue = parseInt(year.value, 10);
-         const currentYear = new Date().getFullYear();
-
-         if(isNaN(yearValue) || yearValue.toString().length !== 4 || yearValue > currentYear) {
-          yearError.innerHTML = 'Must be in the past';
-          yearError.style.color = 'hsl(0, 100%, 67%)';
-          year.style.borderColor = 'hsl(0, 100%, 67%)';
-          year.previousElementSibling.style.color = 'hsl(0, 100%, 67%)'; 
-         } else {
-          yearError.innerHTML = '';
-          yearError.style.color = '';
-          year.style.borderColor = '';
-        }
-
-        // validate the entire date
-        const validDate = validateDate(dayValue, monthValue, yearValue);
-          if (!validDate) {
-            dayError.innerHTML = 'Must be a valid date';
-            dayError.style.color = 'hsl(0, 100%, 67%)';
-            inputs.forEach(input => {
-              input.style.borderColor = 'hsl(0, 100%, 67%)';
-              input.previousElementSibling.style.color = 'hsl(0, 100%, 67%)';
-            });
-          } else {
-            const age = calculateAge(dayValue, monthValue, yearValue);
-            updateAge(age);
-          }
-        
-
-
-         // When validation passes the form is submitted
-        if (dayError.innerHTML === '' && monthError.innerHTML === '' && yearError.innerHTML === '') {
-          console.log('Form submitted');
-        }
+        validateInputs();
       } 
     });
   });
 
   submitButton.addEventListener('click', function() {
-    handleSubmit();
+    validateInputs();
   })
 }
 
